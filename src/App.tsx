@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useFetchHomepage } from './hooks/fetch';
+import { Player } from './types/player';
+import PlayerView from './views/PlayerView';
+import PRCandidateView from './views/PRCandidateView';
+
+//TODO
+const period = 3;
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    //TODO use the loading/error to display something?
+    const {data, loading, error} = useFetchHomepage(period);
+
+    let top20: Player[] = [];
+    if(data) {
+        top20 = data?.slice(0, 20).map(row => row.player);
+    }
+
+    return (
+        data ? 
+            <div className="App">
+                <PlayerView player={data[13]} period={period} />
+            </div>
+            : <div>loading...</div>
+    );
 }
 
 export default App;

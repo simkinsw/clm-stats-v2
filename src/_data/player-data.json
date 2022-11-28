@@ -1,0 +1,62 @@
+{
+    "shabo": {
+        "character": "fox",
+        "summerRank": 1
+    },
+    "Skerzo": {
+        "character": "fox",
+        "summerRank": 2
+    },
+    "JustJoe": {
+        "character": "fox",
+        "summerRank": 3
+    },
+    "Ober": {
+        "character": "falco",
+        "summerRank": 4
+    },
+    "Eggy": {
+        "character": "peach",
+        "summerRank": 5
+    },
+    "Killablue": {
+        "character": "falco",
+        "summerRank": 6
+    },
+    "Ferocitii": {
+        "character": "peach",
+        "summerRank": 7
+    },
+    "GI0GOAT": {
+        "character": "fox",
+        "summerRank": 8
+    },
+    "Larfen": {
+        "character": "sheik",
+        "summerRank": 9
+    },
+    "FoxCap": {
+        "character": "fox",
+        "summerRank": 10
+    },
+    "Azzu": {
+        "character": "falco",
+        "summerRank": 11
+    },
+    "Forest": {
+        "character": "marth",
+        "summerRank": 12
+    },
+    "Mattchu": {
+        "character": "falco",
+        "summerRank": 13
+    },
+    "Unsure": {
+        "character": "fox",
+        "summerRank": 14
+    },
+    "Umma": {
+        "character": "marth",
+        "summerRank": 15
+    }
+}
