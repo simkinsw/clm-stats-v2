@@ -32,19 +32,19 @@
         line-height: 4rem;
 
         &--positive {
-            background-color: $color-h2h-winning;
+            background-color: $color-blue-accent;
         }
 
         &--negative {
-            background-color: $color-h2h-losing;
+            background-color: $color-red-accent;
         }
 
         &--even {
-            background-color: $color-h2h-even;
+            background-color: $color-matchup-highlight;
         }
 
         &--empty {
-            background-color: $color-h2h-self;
+            background-color: $color-text-black;
         }
     }
 }

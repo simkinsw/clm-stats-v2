@@ -1,0 +1,122 @@
+.menu {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 3rem;
+    background-color: $color-background;
+}
+
+.top-nav {
+    display: flex;
+    margin: 0;
+    margin-right: auto;
+
+    & a {
+        text-decoration: none;
+        display: flex;
+    }
+
+    & a:not(:last-child) {
+        border-right: 1px solid $color-text-gray;
+    }
+
+    &__item {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        list-style: none;
+        position: relative;
+        z-index: 10;
+    }
+
+    &__item::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 110%;
+        left: 2rem;
+        width: calc(100% - 4rem);
+        height: 3px;
+        background: $color-text-black;
+        transition: all .15s;
+        transform: scaleX(0);
+    }
+
+    &__item--true::after {
+        transform: scaleX(1);
+        transition: all 0s;
+    }
+
+    &__item:hover::after {
+        transform: scaleX(1);
+    }
+
+    &__link {
+        border: none;
+        font-size: inherit;
+        display: inline-block;
+        cursor: pointer;
+        background-color: transparent;
+        padding: 0 2rem;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+    }
+
+    &__icon {
+        margin-right: 1rem;
+        transform: translateY(-.2rem);
+    }
+
+    &__logo {
+        height: 4rem;
+        margin-right: 1.5rem;
+    }
+
+    & a {
+        color: inherit;
+    }
+}
+
+.search {
+    margin-right: 4rem;
+
+    border-radius: 100px;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__input {
+        font-family: inherit;
+        font-size: inherit;
+        color: inherit;
+        background-color: #fff;
+        border: none;
+        padding: 1rem 2rem !important;
+        border-radius: 100px;
+        margin-right: -4.5rem;
+        width: 40rem;
+
+        &:focus {
+            outline: none;
+        }
+
+        &::-webkit-input-placeholder {
+            font-weight: 100;
+        }
+    }
+    
+    &__icon {
+        margin-top: 1rem;
+        margin-right: 1rem;
+        stroke: $color-text-gray;
+        font-size: 3.5rem;
+    }
+}
+
+input:focus, form:focus {
+    border: none;
+}

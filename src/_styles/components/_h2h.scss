@@ -1,0 +1,134 @@
+.h2h-container {
+    margin-bottom: 1rem;
+}
+
+.h2h{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1rem 2rem;
+    margin-bottom: 1rem;
+    border-radius: 20px;
+    font-size: 3rem;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+
+    &__rank {
+        margin-left: 1.5rem;
+        flex: 0 0 8%;
+        font-size: inherit;
+    }
+
+    &__opponent {
+        flex: 0 0 20%;
+        font-size: inherit;
+    }
+
+    &__record {
+        flex: 0 0 10%;
+        font-size: inherit;
+    }
+
+    &__latest {
+        flex: 1;
+        font-size: inherit;
+    }
+
+    &__chevron {
+        font-size: inherit;
+        transition: all .4s;
+        cursor: pointer;
+
+        &-true {
+            transform: scaleY(-1);
+        }
+    }
+}
+
+.h2h-positive {
+    background-color: $color-blue-accent;
+}
+
+.h2h-negative {
+    background-color: $color-red-accent;
+}
+
+.h2h-even {
+    background-color: $color-button-background;
+}
+
+.h2h::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -1.5rem;
+    width: 4rem;
+    height: 200%;
+}
+
+.h2h-positive::before {
+    background-color: $color-blue-primary;
+}
+
+.h2h-even::before {
+    background-color: $color-matchup-highlight;
+}
+
+.h2h-negative::before {
+    background-color: $color-red-primary;
+}
+
+.h2h__sets {
+    transition: all .4s;
+
+    &--expand-container {
+        margin-top: -1rem;
+        margin-left: 6rem;
+        margin-right: 6rem;
+        overflow: hidden;
+        background-color: white;
+    }
+
+    &-true {
+        margin-top: 0;
+    }
+
+    &-false {
+        margin-top: -100%;
+    }
+}
+
+.h2h-set {
+    font-size: 3.2rem;
+    letter-spacing: .15rem;
+    position: relative;
+    margin-left: 1.8rem;
+
+    &-won {
+        font-weight: bold;
+    }
+
+    &-lost {
+        font-weight: bold;
+
+        
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 20%;
+        left: -1.8rem;
+        width: 2px;
+        height: 68%;
+    }
+
+    &-false::before {
+        background-color: $color-red-primary;
+    }
+
+    &-true::before {
+        background-color: $color-blue-primary;
+    }
+}

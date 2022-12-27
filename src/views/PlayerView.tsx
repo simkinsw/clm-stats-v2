@@ -1,23 +1,46 @@
-import PlayerHeader from "../components/PlayerHeader";
-import TournamentSummary from "../components/TournamentSummary";
-import { useFetchPlayerTournaments } from "../hooks/fetch";
-import { HomepageEntry } from "../types/homepageData";
+import { useState } from "react";
+import { useParams } from "react-router-dom";
+import CompareSide from "../components/Compare/CompareSide";
+import H2hTab from "../components/Player/H2hTab";
+import PlayerHeader from "../components/Player/PlayerHeader";
+import TournamentTab from "../components/Player/TournamentTab";
+import { useFetchHomepageEntry, useFetchPlayerH2hs, useFetchPlayerTournaments } from "../hooks/fetch";
 
-type PlayerViewProps = {
-    player: HomepageEntry;
-    period: number;
-}
+/*
+    TODO:
+    - Click to expand should work for the whole h2h bar
+*/
 
-function PlayerView({ player, period }: PlayerViewProps){
-
-    const { data: tournamentSummaries, loading, error } = useFetchPlayerTournaments(player.player.name, period);
+function PlayerView() {
+    const { player: playerName, period } = useParams();
+    const { data: tournamentSummaries } = useFetchPlayerTournaments(playerName ?? "", period ?? "");
+    const { data: h2hData } = useFetchPlayerH2hs(playerName ?? "", period ?? "");  
+    const { data: player } = useFetchHomepageEntry(playerName ?? "", period ?? "");
+    const [activeTab, setActiveTab] = useState("h2h");
 
     return (
-        <div className="player-view">
-            <PlayerHeader player={player} />
-            {tournamentSummaries && tournamentSummaries!.map(tsum => <TournamentSummary player={player.player.name} tournament={tsum} />)}
-        </div>
+        !!playerName && !!player && !!period ? (
+            <div className="player-view">
+                <PlayerHeader player={player} />
+                    <div className="player-body">
+                    <CompareSide data={player} side="left" />
+                    <div className="player-content">
+                        <ul className="player-tabs">
+                            <li className={`player-tab player-tab-${activeTab==="h2h"}`} onClick={() => setActiveTab("h2h")}>Head To Head</li>
+                            <li className={`player-tab player-tab-${activeTab==="tourney"}`} onClick={() => setActiveTab("tourney")}>Tournaments</li>
+                        </ul>
+                        {!!h2hData && activeTab === "h2h" && <H2hTab h2hData={h2hData} period={period} player={playerName} />}
+                        {!!tournamentSummaries && activeTab === "tourney" && <TournamentTab tournamentSummaries={tournamentSummaries} player={playerName} />}
+                    </div>
+                </div>
+            </div>
+        ) : ( 
+            <div className="player-view">
+                No Player Selected...
+            </div>
+        )
     );
 }
+
 
 export default PlayerView;

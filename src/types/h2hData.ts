@@ -1,13 +1,15 @@
 export type H2hEntry = {
     opponent: string;
     rank: number;
-    sets: {
-        setInfo: SetInfo;
-        tournamentName: string;
-        date: string;
-        slug: string;
-    }[];
+    sets: Set[];
 };
+
+export type Set = {
+    setInfo: SetInfo;
+    tournamentName: string;
+    date: string;
+    slug: string;
+}
 
 export type H2hData = Array<H2hEntry | undefined>;
 

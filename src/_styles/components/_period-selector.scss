@@ -1,0 +1,28 @@
+.period-select {
+    &__container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__icon {
+        cursor: pointer;
+        text-align: center;
+        background-color: $color-button-background;
+        font-size: 2.4rem;
+        width: 18rem;
+        height: 6.5rem;
+        line-height: 6.5rem;
+        
+        margin: 1rem .7rem;
+
+        border-radius: 10px;
+        border: 1px solid transparent;
+
+        &--true, &:hover {
+            background-color: $color-button-fill;
+            color: $color-blue-primary;
+            border: 1px solid $color-blue-primary;
+        }
+    }
+}

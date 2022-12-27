@@ -58,5 +58,8 @@
     "Umma": {
         "character": "marth",
         "summerRank": 15
+    },
+    "Dragoid": {
+        "character": "falco"
     }
 }

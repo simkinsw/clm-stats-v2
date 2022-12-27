@@ -1,14 +1,14 @@
-import { useFetchPlayerH2hs } from "../hooks/fetch";
-import { H2hEntry } from "../types/h2hData";
+import { useFetchPlayerH2hs } from "../../hooks/fetch";
+import { H2hEntry } from "../../types/h2hData";
 
 type H2hMatrixProps = {
     playerNames: string[];
-    period: number;
+    period: string;
 }
 
 type H2hRowProps = {
     player: string;
-    period: number;
+    period: string;
     rank: number;
 }
 
@@ -26,13 +26,12 @@ function H2hMatrix({ playerNames, period }: H2hMatrixProps) {
 }
 
 function H2hRow({ player, period, rank }: H2hRowProps) {
-    const { data, loading, error } = useFetchPlayerH2hs(player, period);
+    const { data } = useFetchPlayerH2hs(player, period);
 
     let editedData: Array<H2hEntry | undefined> = [];
 
     if(!!data) {
         editedData = [...data.slice(0, rank), undefined, ...data.slice(rank, 19)];
-        console.log(editedData);
     }
 
     return (

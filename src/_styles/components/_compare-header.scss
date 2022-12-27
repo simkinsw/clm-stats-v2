@@ -1,0 +1,60 @@
+.compare-header {
+    background-color: $color-background;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 5rem;
+    border-bottom: 2px solid $color-text-gray;
+
+    &__player {
+        flex: 1;
+        display: flex;
+        align-items: center;
+
+        &--1 {
+            justify-content: flex-end;
+            text-align: right;
+        }
+    }
+
+    &__vs {
+        font-size: 6rem;
+        font-weight: bold;
+        margin: 0 7rem;
+    }
+
+    &__avatar {
+        width: 20%;
+        height: 20%;
+        aspect-ratio: 1;
+        border-radius: 50%;
+    }
+
+    &__text {
+        padding: 0 4rem;
+    }
+
+    &__tag {
+        font-size: 8rem;
+        line-height: 8rem;
+        font-weight: bold;
+    }
+
+    &__name {
+        font-size: 5rem;
+    }
+
+    &__socials-link:link, &__socials-link:hover, &__socials-link:active, &__socials-link:visited {
+        color: $color-text-gray;
+        text-decoration: none;
+    }
+
+    &__socials {
+        font-size: 3rem;
+        line-height: 5rem;
+
+        &--icon {
+            margin-right: 1rem;
+        }
+    }
+}

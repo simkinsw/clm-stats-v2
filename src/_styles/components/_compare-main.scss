@@ -1,0 +1,108 @@
+.compare-main {
+    text-align: center;
+    padding: 2rem 10rem;
+    flex: 1;
+
+    &__header {
+        font-size: 4.5rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+    }
+}
+
+.compare-bars {
+    margin-top: 2rem;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.compare-bar {
+    padding: .3rem 0;
+
+    &:not(:last-child) {
+        margin-bottom: 1.2rem;
+    }
+
+    &__title {
+        font-size: 3rem;
+        line-height: 3rem;
+    }
+
+    &__values {
+        font-size: 5rem;
+        font-weight: bold;
+    }
+}
+
+.compare-sets {
+    padding-top: 2rem;
+    
+
+    &__set {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+        border-radius: 20px;
+        overflow: hidden;
+        background-color: white;
+    }
+
+    &__text {
+        padding: .8rem;
+    }
+
+    &__tourney {
+        font-size: 2.8rem;
+        line-height: 2.8rem;
+    }
+
+    &__date {
+        font-size: 2.2rem;
+        line-height: 2.2rem;
+        color: $color-text-gray;
+    }
+
+    &__score {
+        position: relative;
+        margin: 0 4.5rem;
+        font-size: 6rem;
+        line-height: 6rem;
+        font-weight: bold;
+        padding-bottom: 1rem;
+    }
+
+    &__score--left::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -5.5rem;
+        width: 4rem;
+        height: 200%;
+        background-color: $color-blue-primary;
+    }
+
+    &__score--left-false::before {
+        background-color: $color-blue-accent;
+    }
+
+    &__score--right::after {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -5.5rem;
+        width: 4rem;
+        height: 200%;
+        background-color: $color-red-primary;
+    }
+
+    &__score--right-true::after {
+        background-color: $color-red-accent;
+    }
+
+    &__entrants {
+        font-weight: 100;
+    }
+}

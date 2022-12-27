@@ -1,17 +1,23 @@
-import H2hMatrix from "../components/H2hMatrix";
-import { Player } from "../types/player";
+import { useParams } from "react-router-dom";
+import H2hMatrix from "../components/PR/H2hMatrix";
+import { useFetchHomepage } from "../hooks/fetch";
 
-type PRCandidateViewProps = {
-    candidates: Player[];
-    period: number;
-}
+function PRCandidateView() {
+    const { period } = useParams();
+    const { data: allPlayers } = useFetchHomepage(period ?? "");
 
-function PRCandidateView( { candidates, period }: PRCandidateViewProps) {
+    const candidates = allPlayers?.slice(0, 20).map(entry => entry.player);
 
     return (
-        <div className="top20-container">
-            <H2hMatrix playerNames={candidates.map(player => player.name)} period={period} />
-        </div>
+        candidates ? (
+            <div className="top20-container">
+                <H2hMatrix playerNames={candidates.map(player => player.name)} period={period ?? ""} />
+            </div>
+        ) : (
+            <div className="top20-container">
+                Loading Players
+            </div>
+        )
     );
 }
 

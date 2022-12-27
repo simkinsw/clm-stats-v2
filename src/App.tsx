@@ -1,27 +1,26 @@
-import { useFetchHomepage } from './hooks/fetch';
-import { Player } from './types/player';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';  
+import TopNav from './components/TopNav';
+import CompareView from './views/CompareView';
 import PlayerView from './views/PlayerView';
 import PRCandidateView from './views/PRCandidateView';
-
-//TODO
-const period = 3;
+import HomeView from './views/HomeView';
 
 function App() {
-
-    //TODO use the loading/error to display something?
-    const {data, loading, error} = useFetchHomepage(period);
-
-    let top20: Player[] = [];
-    if(data) {
-        top20 = data?.slice(0, 20).map(row => row.player);
-    }
+    const defaultPeriod = process.env.REACT_APP_DEFAULT_PERIOD ?? "4";
 
     return (
-        data ? 
+        <Router>
             <div className="App">
-                <PlayerView player={data[13]} period={period} />
+                <TopNav />
+                <Routes>  
+                    <Route path={"/stats-v2-alpha/"} element={<Navigate to={`/stats-v2-alpha/${defaultPeriod}`} replace />} />
+                    <Route path={"/stats-v2-alpha/:period"} element={<HomeView />}></Route>  
+                    <Route path={"/stats-v2-alpha/:period/player/:player"} element={<PlayerView />}></Route>  
+                    <Route path={`stats-v2-alpha/:period/compare/:player1/:player2`} element={<CompareView />}></Route>  
+                    <Route path={"/stats-v2-alpha/:period/pr"} element={<PRCandidateView />}></Route>  
+                </Routes>  
             </div>
-            : <div>loading...</div>
+        </Router>
     );
 }
 

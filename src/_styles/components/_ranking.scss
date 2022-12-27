@@ -1,0 +1,179 @@
+.ranking-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 92%;
+    margin: 0 auto;
+}
+
+.ranking-header {
+    font-size: 3.2rem;
+    font-weight: bold;
+    display: flex;
+    padding: 1rem 0;
+    padding-left: 1rem;
+
+    &__1 {
+        text-align: center;
+        flex: 0 0 8%;
+    }
+
+    &__2 {
+        flex: 0 0 calc(25% + 11rem);
+    }
+
+    &__3 {
+        flex: 0 0 10%;
+    }
+
+    &__4 {
+        flex: 0 0 15%;
+        text-align: center;
+    }
+
+    &__5 {
+        flex: 0 0 12%;
+        text-align: center;
+    }
+
+    &__6 {
+        padding-left: 1.5rem;
+    }
+
+    &__entry {
+        cursor: pointer;
+    }
+
+    &__sort-arrow {
+        font-size: 2.8rem;
+        margin-left: .5rem;
+        transform: translateY(.4rem);
+        cursor: pointer;
+    }
+}
+
+.ranking-row {
+    display: flex;
+    font-size: 3rem;
+    align-items: center;
+    
+    &:not(:last-child) {
+        border-bottom: 1px solid $color-text-gray;
+    }
+
+    &__item {
+        display: inline-block;
+        padding: 1rem;
+    }
+
+    &__rank {
+        flex: 0 0 8%;
+        font-size: 4rem;
+        font-weight: bold;
+        text-align: center;
+    }
+    
+    &__avatar {
+        aspect-ratio: 1;
+        height: 11rem;
+        border-radius: 50%;
+    }
+
+    &__name {
+        flex: 0 0 25%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        line-height: 3.5rem;
+
+        &--top {
+            display: flex;
+            align-items: center;
+            margin-bottom: .6rem;
+        }
+
+        &--tag {
+            font-size: 3.5rem;
+            font-weight: 600;
+        }
+
+        &--pronouns {
+            font-size: 2.8rem;
+            padding-top: .6rem;
+            padding-left: 1rem;
+        }
+
+        &--bottom {
+            display: flex;
+        }
+
+        &--icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            margin-right: 1rem;
+            fill: $color-text-gray;
+        }
+    }
+
+    &__rating {
+        flex: 0 0 10%;
+    }
+
+    &__winloss {
+        text-align: center;
+        flex: 0 0 15%;
+    }
+
+    &__pr-events {
+        text-align: center;
+        flex: 0 0 12%;
+    }
+
+    &__last-tournament {
+        line-height: 3rem;
+        font-size: 3rem;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        &--date {
+            color: $color-text-gray;
+        }
+    }
+}
+
+.ranking-filters {
+    margin-left: 3.7rem;
+    margin-bottom: 5rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 3rem;
+    cursor: pointer;
+    line-height: 0;
+
+    &__heading {
+        display: none;
+        font-size: 4rem;
+    }
+
+    &__checkbox {
+        margin-right: .6rem;
+        font-size: 3.5rem;
+        transform: translateY(.6rem);
+    }
+
+    &__filter {
+        display: none;
+        font-size: inherit;
+        font-family: inherit;
+        margin-left: 2rem;
+        margin-right: 3rem;
+        border: none;
+    }
+}

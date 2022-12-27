@@ -1,3 +1,5 @@
+import { Event } from "./event";
+
 //TODO: lots of duplicate info here
 export type Player = {
     id: number;

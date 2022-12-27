@@ -1,4 +1,38 @@
 .player-view {
-    width: 90%;
-    margin: 0 auto;
+    background-color: $color-background;
+    flex: 1;
+    min-height: 95vh;
+    padding: 3rem 5rem;
+}
+
+.player-body {
+    display: flex;
+}
+
+.player-content {
+    flex: 1;
+}
+
+.tournament-summaries {
+    flex: 1;
+    padding: 3rem 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.player-h2h-container {
+    flex: 1;
+    padding: 3rem 3rem;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.section-header {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    font-size: 5rem;
 }

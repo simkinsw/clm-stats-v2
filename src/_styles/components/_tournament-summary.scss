@@ -1,47 +1,40 @@
-/*TODO: Fix these class names, only 2 levels of nesting!!*/
-
-.tournament-summary {
-    width: 50%;
-    margin: 2rem 0;
+.tsum {
+    width: 49%;
+    margin-bottom: 3rem;
     display: flex;
     flex-direction: column;
     text-align: center;
-    border: 1px solid $color-h2h-even;
     border-radius: 3px;
+    box-shadow: 0 .5rem 2rem rgba(0, 0, 0, .25);
 
     &__event {
-        background-color: $color-h2h-even;
         display: flex;
-        justify-content: space-between;
-        border-bottom: 3px solid $color-header-background;
+        flex: 1;
         border-top-left-radius: 3px;
         border-top-right-radius: 3px;
 
         &--image-container {
+            flex: 0 1 10rem;
             max-height: 100%;
-            max-width: 10rem;
-            background-color: white;
+            
             clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
         }
 
         &--image {
             max-height: 8rem;
-            max-width: 8rem;
-            margin-right: 1em;
+            margin-right: 1rem;
+        }
+
+        &--title {
+            margin-right: auto;
+            text-align: left;
+            padding-top: .5rem;
         }
 
         &--tourney {
-            font-family: acumin-pro-wide;
-            font-size: 3.5rem;
+            font-family: proxima-nova-wide;
+            font-size: 3.2rem;
             white-space: nowrap;
-
-            &-link {
-                text-decoration: none;
-            }
-
-            &-link:active, &-link:visited {
-                color: blue;
-            }
         }
 
         &--info {
@@ -55,101 +48,110 @@
 
         &--placing {
             font-size: 5rem;
-            font-family: acumin-pro-wide;
             font-weight: bold;
             margin-right: 2rem;
         }
     }
 
     &__result {
+        flex: 1;
         display: flex;
-        font-family: acumin-pro-wide;
-        font-weight: bold;
-        text-transform: uppercase;
-        background-color: $color-gray-light;
-        border-bottom-right-radius: 5px;
-        border-bottom-left-radius: 5px;
+        align-items: stretch;
+        border-bottom-right-radius: 3px;
+        border-bottom-left-radius: 3px;
+        padding-left: 1rem;
+    }
 
-        &--record {
-            padding-top: 1rem;
-            margin-left: 1rem;
-
-            &-header {
-                display: block;
-                font-size: 1.5rem;
-            }
-
-            &-value {
-                font-size: 3rem;
-            }
+    &__wins {
+        margin-right: 1rem;
+        
+        &--header {
+            display: block;
+            font-size: 2.5rem;
         }
 
-        &--losses {
-            padding-top: 1rem;
-            margin-left: 3rem;
-            max-width: 20%;
+        &--value {
+            line-height: 4rem;
+            font-size: 4rem;
+            font-weight: bold;
+        }
+    }
 
-            &-header {
-                display: block;
-                font-size: 1.5rem;
-            }
-
-            &-names {
-                display: inline-block;
-                font-size: 1.5rem;
-            }
+    &__record {
+        line-height: 4rem;
+        &--placing {
+            font-size: 4rem;
+            font-weight: bold;
         }
 
-        &--sets {
-            flex: 1 1 0;
-            margin: 0 3rem;
-            display: flex;
-            flex-direction: column;
-            padding-bottom: 1rem;
-
-            &-container {
-                flex: 1 1 0;
-                display: flex;
-                justify-content: stretch;
-                width: 100%;
-            }
-
-            &-set {
-                flex: 1 1 0;
-                font-size: 2rem;
-                border-radius: 3px;
-                
-                &:not(:last-child) {
-                    margin-right: .3rem;
-                }
-
-                &W {
-                    background-color: $color-h2h-winning;
-                }
-
-                &L {
-                    background-color: $color-h2h-losing;
-                }
-            }
-        }
-
-        &--chevron {
-            cursor: pointer;
+        &--entrants {
             font-size: 3rem;
-            margin-top: 4.5rem;
-            margin-right: 1rem;
-            transform: scaleY(1);
-            transition: all .4s;
+        }
+    }
+    
+    &__losses {
+        padding-top: 1rem;
+        margin-left: 3rem;
+        flex: 0 1 15%;
 
-            &-true {
-                transform: scaleY(-1);
+        &--header {
+            display: block;
+            font-size: 1.5rem;
+        }
+
+        &--names {
+            display: inline-block;
+            font-size: 1.5rem;
+        }
+    }
+
+    &__sets {
+        flex: 1 1 0;
+        margin: 0 1rem;
+        padding-left: 1rem;
+        display: flex;
+        flex-direction: column;
+
+        &--container {
+            flex: 1 1 0;
+            display: flex;
+            justify-content: stretch;
+            align-items: center;
+            flex: 1;
+            margin: 0;
+        }
+
+        &--set {
+            flex: 1 1 0;
+            font-size: 2.5rem;
+            font-weight: bold;
+            height: 4rem;
+            line-height: 3.5rem;
+            border-radius: 3px;
+            list-style: none;
+            border: 2px solid transparent;
+            
+            &:not(:last-child) {
+                margin-right: .3rem;
             }
+        }
+
+        &--set:hover {
+            border: 2px solid $color-text-black;
+        }
+
+        &--W {
+            background-color: $color-blue-accent;
+        }
+
+        &--L {
+            background-color: $color-red-accent;
         }
     }
 
     &__details {
-        background-color: $color-gray-light;
-        transition: all .5s ease-in-out;
+
+        transition: all .4s;
         margin-top: 0%;
 
         &--expand-container {
@@ -160,16 +162,26 @@
             margin-top: -150%;
         }
     }
+
+    &__chevron {
+        align-self: center;
+        cursor: pointer;
+        font-size: 2.2rem;
+        transform: scaleY(1);
+        transition: all .4s;
+
+        &-true {
+            transform: scaleY(-1);
+        }
+    }
 }
 
 .set-detail {
-    border: 3px solid $color-header-background;
     margin: .5rem;
     border-radius: 3px;
 
     &__round {
-        background-color: $color-header-background;
-        color: $color-white-text;
+
         padding: .4rem 0;
     }
 
@@ -181,68 +193,64 @@
             flex: 1 1 0;
             display: flex;
             justify-content: space-between;
-            font-family: acumin-pro-wide;
+            font-family: proxima-nova-wide;
             font-weight: bold;
             font-size: 2rem;
             padding: .5rem 1rem;
     
-            color: $color-gray-text-dark;
-            background-color: $color-h2h-even;
+
         }
     
         &--player {
-            border-right: 1px solid $color-header-background;
+
         }
     
         &--player-true {
-            background-color: $color-h2h-winning;
-            color: $color-header-background;
+
         }
     
         &--opponent-false {
-            background-color: $color-h2h-losing;
-            color: $color-header-background;
+
         }
     }
 }
 
 .set-tooltip {
-    width: 100%;
     flex: 1 1 0;
-    margin: .5rem 0;
+    margin: .5rem 1rem;
     display: flex;
     align-content: center;
-    border-radius: 3px;
-
-    border: 1px solid $color-header-background;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all .4s;
     
     &__player,
     &__opponent {
+        position: relative;
         flex: 1 1 0;
         display: flex;
         justify-content: space-between;
-        font-family: acumin-pro-wide;
-        font-weight: bold;
+        font-family: proxima-nova-wide;
         font-size: 2rem;
         padding: 0 1rem;
         padding-top: .5rem;
-
-        color: $color-gray-text-dark;
-        background-color: $color-h2h-even;
+        background-color: $color-matchup-background;
     }
 
-    &__player {
-        border-right: 1px solid $color-header-background;
+    &__tag {
+        margin: 0 2rem;
+    }
+
+    &__games {
+        font-weight: bold;
     }
 
     &__player-true {
-        background-color: $color-h2h-winning;
-        color: $color-header-background;
+        background-color: $color-blue-accent;
     }
 
     &__opponent-false {
-        background-color: $color-h2h-losing;
-        color: $color-header-background;
+        background-color: $color-red-accent;
     }
 
     &__active {
@@ -253,5 +261,31 @@
         opacity: 0;
     }
 
-    transition: all .4s;
+    &__player::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -2.4rem;
+        width: 4rem;
+        height: 200%;
+        background-color: $color-matchup-highlight;
+    }
+
+    &__player-true::before {
+        background-color: $color-blue-primary
+    }
+
+    &__opponent::after {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -2.4rem;
+        width: 4rem;
+        height: 200%;
+        background-color: $color-matchup-highlight;
+    }
+
+    &__opponent-false::after {
+        background-color: $color-red-primary;
+    }
 }
