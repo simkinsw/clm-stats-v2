@@ -28,6 +28,12 @@
     &__value {
         font-size: 3.5rem;
         font-weight: bold;
+
+        &--default {
+            width: 8rem;
+            height: 3.5rem;
+            margin: 1rem auto;
+        }
     }
 }
 

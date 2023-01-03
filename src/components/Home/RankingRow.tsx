@@ -38,15 +38,15 @@ function RankingRow({ data, period }: RankingRowProps) {
 
             <div className="ranking-row__item ranking-row__name">
                 <div className="ranking-row__name--top">
-                    <Link className="ranking-row__name--tag" to={`/stats-v2-alpha/${period}/Player/${player.name}`}>{player.name}</Link>
+                    <Link className="ranking-row__name--tag" to={`/stats-v2-alpha/${period}/player/${player.name}`}>{player.name}</Link>
                     {player.pronouns && <div className="ranking-row__name--pronouns">({player.pronouns})</div>}
                 </div>
                 <div className="ranking-row__name--bottom">
                     {character && <img src={require(`../../_assets/stockIcons/${character}.png`)} alt="" className="ranking-row__name--icon ranking-row__name--character" />}
-                    <a href={`https://twitter.com/${player.twitterUsername}`} className="social-link">
+                    <a href={`https://twitter.com/${player.twitterUsername}`} className="social-link" target="_blank" rel="noopener">
                         {player.twitterUsername && <FaTwitter className="ranking-row__name--icon" />}
                     </a>
-                    <a href={`https://twitch.tv/${player.twitchUsername}`} className="social-link">
+                    <a href={`https://twitch.tv/${player.twitchUsername}`} className="social-link" target="_blank" rel="noopener">
                         {player.twitchUsername && <FaTwitch className="ranking-row__name--icon" />}
                     </a>
                 </div>

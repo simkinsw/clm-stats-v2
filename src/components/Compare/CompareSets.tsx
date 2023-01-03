@@ -18,7 +18,7 @@ function SetBar({ set }: { set: Set }) {
         <div className="compare-sets__set">
             <div className={`compare-sets__score compare-sets__score--left compare-sets__score--left-${set.setInfo.won}`}>{set.setInfo.wonGames}</div>
             <div className="compare-sets__text">
-                <div className="compare-sets__tourney">{`${set.tournamentName} - ${set.setInfo.round}`}</div>
+                <div className="compare-sets__tourney">{`${set.tournamentName.split(":")[0]} - ${set.setInfo.round}`}</div>
                 <div className="compare-sets__date">{set.date}</div>
             </div>
             <div className={`compare-sets__score compare-sets__score--right compare-sets__score--right-${set.setInfo.won}`}>{set.setInfo.lostGames}</div>

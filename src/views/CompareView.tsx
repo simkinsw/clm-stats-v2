@@ -12,7 +12,7 @@ import PlayerCompare from "../components/Compare/PlayerCompare";
 function CompareView() {
     const { player1, player2 } = useParams();
     const { period } = useParams();
-
+    
     return (
         !!player1 && !!player2 && !!period ?
          <PlayerCompare player1={player1} player2={player2} period={period} />

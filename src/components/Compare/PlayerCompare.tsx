@@ -17,7 +17,7 @@ function PlayerCompare({ player1, player2, period }: PlayerCompareProps) {
     return (
         p1Data && p2Data ?
         <div className="compare-container">
-            <CompareHeader p1Data={p1Data} p2Data={p2Data} />
+            <CompareHeader p1Data={p1Data} p2Data={p2Data} period={period} />
             <div className="compare-body">
                 <CompareSide data={p1Data} side="left" />
                 <CompareMain player1={player1} player2={player2} period={period} />

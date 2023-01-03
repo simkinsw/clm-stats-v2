@@ -1,6 +1,6 @@
 import { H2hEntry, Set } from "../../types/h2hData";
 import { FaChevronDown } from "react-icons/fa";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 type H2hProps = {
@@ -12,6 +12,10 @@ type H2hProps = {
 //TODO: filter out DQs? (unless the backend already does?)
 function HeadToHead ({ h2h, player, period }: H2hProps) {
     const [setsVisible, setSetsVisible] = useState(false);
+
+    useEffect(() => {
+        setSetsVisible(false);
+    }, [player, period])
 
     if(!h2h.sets || h2h.sets.length === 0) return <></>;
 

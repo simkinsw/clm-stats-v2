@@ -2,7 +2,7 @@
     margin-bottom: 1rem;
 }
 
-.h2h{
+.h2h {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -23,6 +23,10 @@
     &__opponent {
         flex: 0 0 20%;
         font-size: inherit;
+    }
+
+    &__opponent:hover {
+        text-decoration: underline;
     }
 
     &__record {

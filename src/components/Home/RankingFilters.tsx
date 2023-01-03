@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { FilterKeys } from "../../types/sortProps";
 import { MdOutlineCheckBox, MdOutlineCheckBoxOutlineBlank } from "react-icons/md";
-import PeriodSelector from "../PeriodSelector";
 
 function RankingFilters({ toggleFilter }: { toggleFilter: (filter: keyof typeof FilterKeys) => void} ) {
     return (
@@ -9,7 +8,6 @@ function RankingFilters({ toggleFilter }: { toggleFilter: (filter: keyof typeof 
             <div className="ranking-filters__heading">Filters:</div>
             <Checkbox text="Hide Out of Region Players" filterKey="region" toggleFilter={toggleFilter} />
             <Checkbox text="Hide Unranked Players" filterKey="ranked" toggleFilter={toggleFilter} />
-            <PeriodSelector />
         </div>
     );
 }

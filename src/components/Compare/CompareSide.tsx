@@ -3,11 +3,12 @@ import playerData from "../../_data/player-data.json";
 import { AdditionalPlayerData } from "../../types/player";
 
 type CompareSideProps = {
-    data: HomepageEntry;
+    data: HomepageEntry | undefined;
     side: string
 }
 
 function CompareSide({ data, side }: CompareSideProps) {
+    if (!data) return <></>;
 
     const additionalPlayerData = new Map(Object.entries(playerData)) as AdditionalPlayerData;
 
