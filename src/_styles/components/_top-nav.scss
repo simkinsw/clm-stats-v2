@@ -39,17 +39,17 @@
         width: calc(100% - 4rem);
         height: 3px;
         background: $color-text-black;
-        transition: all .15s;
+        transition: all 0s;
         transform: scaleX(0);
     }
 
     &__item--true::after {
         transform: scaleX(1);
-        transition: all 0s;
     }
 
     &__item:hover::after {
         transform: scaleX(1);
+        transition: all .15s;
     }
 
     &__link {
@@ -80,7 +80,7 @@
 }
 
 .search {
-    margin-right: 4rem;
+    margin-right: 9rem;
 
     border-radius: 100px;
     overflow: hidden;
@@ -88,6 +88,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: margin-right .2s;
+
+    &:focus-within {
+        margin-right: 4rem;
+    }
 
     &__input {
         font-family: inherit;
@@ -99,9 +104,11 @@
         border-radius: 100px;
         margin-right: -4.5rem;
         width: 40rem;
+        transition: width .2s;
 
         &:focus {
-            outline: none;
+            //outline: none;
+            width: 50rem;
         }
 
         &::-webkit-input-placeholder {
@@ -110,7 +117,6 @@
     }
     
     &__icon {
-        margin-top: 1rem;
         margin-right: 1rem;
         stroke: $color-text-gray;
         font-size: 3.5rem;

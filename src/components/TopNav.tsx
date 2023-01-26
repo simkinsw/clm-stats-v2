@@ -1,16 +1,13 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { BsFillPersonFill, BsFillHouseFill, BsPeopleFill, BsFillBarChartFill } from "react-icons/bs";
-import { FaTrophy } from "react-icons/fa";
+import { BsFillPersonFill, BsFillHouseFill, BsPeopleFill } from "react-icons/bs";
 import { HiOutlineSearch } from "react-icons/hi";
 
 /*
     TODO: 
     - new icon for CLM Stats
-    - animate clicking on the links
-    - effect when clicking on search
+    - Change the way Period is stored in the url (query string?)
     - Current page effect doesn't work for Player pages
-    - remove underline transition out (underline just disappears)
 */
 
 function TopNav() {
@@ -31,13 +28,15 @@ function TopNav() {
                 <TopNavItem text="CLM Stats" path={`/stats-v2-alpha/${period}`} icon={<BsFillHouseFill className="top-nav__icon" />} />
                 <TopNavItem text="Players" path={`/stats-v2-alpha/${period}/player/${searchText}`} icon={<BsFillPersonFill className="top-nav__icon" />} />
                 <TopNavItem text="Compare" path={`/stats-v2-alpha/${period}/compare/${searchText}/`} icon={<BsPeopleFill className="top-nav__icon" />} />
+                {/*
                 <TopNavItem text="PR Voting" path={`/stats-v2-alpha/${period}/pr`} icon={<BsFillBarChartFill className="top-nav__icon" />} />
                 <TopNavItem text="Tournaments" path={`/stats-v2-alpha/${period}/tournament`} icon={<FaTrophy className="top-nav__icon" />} />
+                */}
             </ul>
 
-            <form action="#" className="search" onSubmit={() => sendSearch()}>
+            <form action="#" className="search" onSubmit={sendSearch}>
                 <input type="text" className="search__input" placeholder="Search players..." value={searchText} onChange={(e) => setSearchText(e.target.value)} />
-                <Link to={`/stats-v2-alpha/${period}/player/${searchText}`}><HiOutlineSearch className="search__icon" /></Link>
+                <HiOutlineSearch onClick={sendSearch} className="search__icon" />
             </form>
         </nav>
     );

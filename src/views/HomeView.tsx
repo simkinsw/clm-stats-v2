@@ -5,9 +5,8 @@ import { useFetchHomepage } from "../hooks/fetch";
 
 /*
     TODO:
-    - Fix the spacing of the headers (this probably shouldn't be using flex?) 
-    - Change how the filter looks
-    - Why is text-overflow: ellipsis not working :(
+    - Images are not loading properly (copying image above?)
+    - Why is text-overflow: ellipsis not working :( (width needs to be constrained in pixels not percent)
 */
 
 

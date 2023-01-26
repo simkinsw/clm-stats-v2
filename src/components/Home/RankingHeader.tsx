@@ -8,7 +8,7 @@ type RankingHeaderProps = {
 function RankingHeader({ sortProps, setSort }: RankingHeaderProps) {
     return (
         <div className="ranking-header">
-            <Header text={"Rank"} num={1} myKey={"rating"} sortProps={sortProps} setSort={setSort} />
+            <span className="ranking-header__entry ranking-header__1">Rank</span>
             <Header text={"Player"} num={2} myKey={"name"} sortProps={sortProps} setSort={setSort} />
             <Header text={"Rating"} num={3} myKey={"rating"} sortProps={sortProps} setSort={setSort} />
             <Header text={"W - L (%)"} num={4} myKey={"winrate"} sortProps={sortProps} setSort={setSort} /> 

@@ -26,3 +26,62 @@
         }
     }
 }
+
+.filter {
+    &__container {
+        position: relative;
+    }
+
+    &__box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 6.5rem;
+        height: 6.5rem;
+        margin-left: 1rem;
+        border-radius: 10px;
+        border: 1px solid transparent;
+        cursor: pointer;
+        text-align: center;
+        background-color: $color-button-background;
+
+        &--true, &:hover, &:focus {
+            background-color: $color-button-fill;
+            color: $color-blue-primary;
+            border: 1px solid $color-blue-primary;
+        }
+    }
+
+    &__icon {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    &__dropdown {
+        position: absolute;
+        width: 38rem;
+        top: 7rem;
+        right: 0;
+        z-index: 100;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 .5rem 2rem rgba(0, 0, 0, .25);
+    }
+
+    &__option {
+        text-align: right;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        background-color: $color-background;
+
+        &--label {
+
+        }
+
+        &--checkbox {
+            margin: 1rem;
+            font-size: 3rem;
+        }
+    }
+}

@@ -70,7 +70,7 @@ function Ranking({ period, data }: RankingProps) {
                 <div className="ranking-container">
                     <RankingFilters toggleFilter={toggleFilter} />
                     <RankingHeader sortProps={sortProps} setSort={setSort} />
-                    {rows && rows.map((entry, rank) => <RankingRow data={entry} period={period} key={rank} />)}
+                    {rows && rows.map((entry, rank) => <RankingRow data={entry} period={period} rank={sortProps.sortDir === -1 ? rank + 1 : rows.length - rank} key={rank} />)}
                 </div>
             </div>
         </div>

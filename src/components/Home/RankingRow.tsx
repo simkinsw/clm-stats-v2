@@ -6,10 +6,11 @@ import playerData from "../../_data/player-data.json";
 
 type RankingRowProps = {
     data: HomepageEntry,
-    period: string
+    period: string,
+    rank: number
 }
 
-function RankingRow({ data, period }: RankingRowProps) {
+function RankingRow({ data, period, rank }: RankingRowProps) {
     const player = data.player;
 
     const additionalPlayerData = new Map(Object.entries(playerData)) as AdditionalPlayerData;
@@ -32,7 +33,7 @@ function RankingRow({ data, period }: RankingRowProps) {
 
     return (
         <div className="ranking-row">
-            <div className="ranking-row__item ranking-row__rank">{data.rank}</div>
+            <div className="ranking-row__item ranking-row__rank">{rank}</div>
 
             <img src={player.profileImage} className="ranking-row__item ranking-row__avatar" alt="profile pic" />
 

@@ -11,7 +11,6 @@
     font-weight: bold;
     display: flex;
     padding: 1rem 0;
-    padding-left: 1rem;
 
     &__1 {
         text-align: center;
@@ -24,6 +23,8 @@
 
     &__3 {
         flex: 0 0 10%;
+        text-align: center;
+
     }
 
     &__4 {
@@ -37,11 +38,12 @@
     }
 
     &__6 {
-        padding-left: 1.5rem;
+        
     }
 
     &__entry {
         cursor: pointer;
+        padding: 0 1rem;
     }
 
     &__sort-arrow {
@@ -102,7 +104,6 @@
 
         &--pronouns {
             font-size: 2.8rem;
-            padding-top: .6rem;
             padding-left: 1rem;
         }
 
@@ -119,6 +120,8 @@
     }
 
     &__rating {
+        text-align: center;
+        padding-right: 3rem; //This is here for better visual centering, but it might make break on different screens
         flex: 0 0 10%;
     }
 
