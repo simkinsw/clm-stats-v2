@@ -130,6 +130,7 @@
             border-radius: 3px;
             list-style: none;
             border: 2px solid transparent;
+            cursor: default;
             
             &:not(:last-child) {
                 margin-right: .3rem;
@@ -279,7 +280,7 @@
         content: "";
         position: absolute;
         top: -50%;
-        right: -2.4rem;
+        right: -2.3rem;
         width: 4rem;
         height: 200%;
         background-color: $color-matchup-highlight;

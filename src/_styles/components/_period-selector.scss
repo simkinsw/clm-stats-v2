@@ -1,35 +1,71 @@
 .period-select {
     &__container {
+        position: absolute;
+        top: 100%;
+        right: 5rem;
+        padding-top: 3rem;
+        z-index: 3;
         display: flex;
-        justify-content: center;
         align-items: center;
+        cursor: pointer;
     }
 
     &__icon {
-        cursor: pointer;
-        text-align: center;
+        display: flex;
+        align-items: center;
+        padding: 0 1.5rem;
         background-color: $color-button-background;
-        font-size: 2.4rem;
-        width: 18rem;
+        width: 24rem;
         height: 6.5rem;
-        line-height: 6.5rem;
-        
-        margin: 1rem .7rem;
-
         border-radius: 10px;
         border: 1px solid transparent;
 
-        &--true, &:hover {
+        &:hover, &--true {
             background-color: $color-button-fill;
             color: $color-blue-primary;
             border: 1px solid $color-blue-primary;
         }
+    }
+
+    &__text {
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__chevron {
+        transform: translateY(.6rem);
+    }
+
+    &__dropdown {
+        position: absolute;
+        width: 100%;
+        top: calc(100% + .5rem);
+        right: 0;
+        z-index: 500;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 .5rem 2rem rgba(0, 0, 0, .25);
+    }
+
+    &__option {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding-left: 1.5rem;
+        background-color: $color-background;
+    }
+
+    &__option:hover {
+        background-color: $color-button-fill;
     }
 }
 
 .filter {
     &__container {
         position: relative;
+        margin-right: 23rem;
+        margin-top: -2rem;
     }
 
     &__box {
@@ -59,7 +95,7 @@
 
     &__dropdown {
         position: absolute;
-        width: 38rem;
+        width: 36rem;
         top: 7rem;
         right: 0;
         z-index: 100;
@@ -69,6 +105,7 @@
     }
 
     &__option {
+        cursor: pointer;
         text-align: right;
         display: flex;
         align-items: center;
@@ -83,5 +120,9 @@
             margin: 1rem;
             font-size: 3rem;
         }
+    }
+
+    &__option:hover {
+        background-color: $color-button-fill;
     }
 }

@@ -102,6 +102,10 @@
             font-weight: 600;
         }
 
+        &--tag:hover {
+            text-decoration: underline !important;
+        }
+
         &--pronouns {
             font-size: 2.8rem;
             padding-left: 1rem;
@@ -151,32 +155,10 @@
 }
 
 .ranking-filters {
-    margin-left: 3.7rem;
-    margin-bottom: 5rem;
+    margin-bottom: 1rem;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     font-size: 3rem;
-    cursor: pointer;
     line-height: 0;
-
-    &__heading {
-        display: none;
-        font-size: 4rem;
-    }
-
-    &__checkbox {
-        margin-right: .6rem;
-        font-size: 3.5rem;
-        transform: translateY(.6rem);
-    }
-
-    &__filter {
-        display: none;
-        font-size: inherit;
-        font-family: inherit;
-        margin-left: 2rem;
-        margin-right: 3rem;
-        border: none;
-    }
 }

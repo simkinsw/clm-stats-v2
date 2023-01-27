@@ -1,6 +1,5 @@
 import { useFetchPlayerH2hs, useFetchPlayerTournaments } from "../../hooks/fetch";
 import { H2hEntry } from "../../types/h2hData";
-import PeriodSelector from "../PeriodSelector";
 import CompareH2h from "./CompareH2h";
 import CompareSets from "./CompareSets";
 import CompareTournaments from "./CompareTournaments";
@@ -24,7 +23,6 @@ function CompareMain({ player1, player2, period }: CompareMainProps) {
 
     return (
         <div className="compare-main">
-            <PeriodSelector />
             {directH2h && <CompareH2h h2h={directH2h} />}
             {directH2h && <CompareSets sets={directH2h.sets.filter(set => !set.setInfo.dq).slice().reverse()} />}
             {p1Tourneys && p2Tourneys && <CompareTournaments p1Tournaments={p1Tourneys} p2Tournaments={p2Tourneys} />}

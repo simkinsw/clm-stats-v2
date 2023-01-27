@@ -40,8 +40,12 @@
         font-weight: bold;
     }
 
+    &__tag:hover {
+        text-decoration: underline;
+    }
+
     &__name {
-        font-size: 5rem;
+        font-size: 4rem;
     }
 
     &__socials-link:link, &__socials-link:hover, &__socials-link:active, &__socials-link:visited {

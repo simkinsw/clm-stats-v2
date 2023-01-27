@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import Ranking from "../components/Home/Ranking";
 import { useFetchHomepage } from "../hooks/fetch";
 
@@ -11,7 +11,9 @@ import { useFetchHomepage } from "../hooks/fetch";
 
 
 function HomeView() {
-    const { period } = useParams();
+    const [queryParams] = useSearchParams();
+    const period = queryParams.get("period");
+
     const { data } = useFetchHomepage(period ?? "");
 
     return (

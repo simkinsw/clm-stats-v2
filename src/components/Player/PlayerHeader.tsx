@@ -1,11 +1,15 @@
 import { HomepageEntry } from "../../types/homepageData";
 import { FaTwitter, FaTwitch } from "react-icons/fa";
+import DefaultPlayerHeader from "./DefaultPlayerHeader";
 
 type PlayerHeaderProps = {
-    player: HomepageEntry
+    player: HomepageEntry | undefined,
+    period: string
 }
 
-function PlayerHeader({ player }: PlayerHeaderProps) {
+function PlayerHeader({ player, period }: PlayerHeaderProps) {
+
+    if (!player) return <DefaultPlayerHeader period={period} />
 
     return (
         <header className="player-header">
@@ -24,14 +28,16 @@ function PlayerHeader({ player }: PlayerHeaderProps) {
                         {player.player.pronouns && <span className="player-header__text--pronouns">{`(${player.player.pronouns})`}</span>}
                     </div>
                     <div className="player-header__text--socials">
-                        <a href={`https://twitter.com/${player.player.twitterUsername}`} className="social-link">
+                        {player.player.twitterUsername &&
+                        <a href={`https://twitter.com/${player.player.twitterUsername}`} className="social-link" target="_blank" rel="noreferrer">
                             <FaTwitter className="player-header__icon" />
                             <span className="player-header__text--twitter">{player.player.twitterUsername}</span>
-                        </a>
-                        <a href={`https://twitch.tv/${player.player.twitchUsername}`} className="social-link">
+                        </a>}
+                        {player.player.twitchUsername &&
+                        <a href={`https://twitch.tv/${player.player.twitchUsername}`} className="social-link" target="_blank" rel="noreferrer">
                             <FaTwitch className="player-header__icon" style={{transform: "translateY(.3rem)"}} /> 
                             <span className="player-header__text--twitch">{player.player.twitchUsername}</span>
-                        </a>
+                        </a>}
                     </div>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import PlayerCompare from "../components/Compare/PlayerCompare";
 
 /*
@@ -11,8 +11,9 @@ import PlayerCompare from "../components/Compare/PlayerCompare";
 
 function CompareView() {
     const { player1, player2 } = useParams();
-    const { period } = useParams();
-
+    const [queryParams] = useSearchParams();
+    const period = queryParams.get("period")!;
+    
     return (
         !!player1 && !!player2 && !!period ?
          <PlayerCompare player1={player1} player2={player2} period={period} />

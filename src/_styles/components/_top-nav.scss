@@ -1,4 +1,5 @@
 .menu {
+    position: relative;
     display: flex;
     width: 100%;
     justify-content: space-between;
@@ -80,11 +81,9 @@
 }
 
 .search {
-    margin-right: 9rem;
-
+    margin-right: 5rem;
     border-radius: 100px;
     overflow: hidden;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -95,12 +94,12 @@
     }
 
     &__input {
+        border: none;
         font-family: inherit;
         font-size: inherit;
         color: inherit;
         background-color: #fff;
-        border: none;
-        padding: 1rem 2rem !important;
+        padding: .2rem 2rem !important;
         border-radius: 100px;
         margin-right: -4.5rem;
         width: 40rem;
@@ -108,7 +107,7 @@
 
         &:focus {
             //outline: none;
-            width: 50rem;
+            width: 42rem;
         }
 
         &::-webkit-input-placeholder {
@@ -121,8 +120,4 @@
         stroke: $color-text-gray;
         font-size: 3.5rem;
     }
-}
-
-input:focus, form:focus {
-    border: none;
 }

@@ -1,22 +1,19 @@
 import { useRef, useState } from "react";
-import { FilterKeys } from "../../types/sortProps";
+import { FilterKeys, filters } from "../../types/sortProps";
 import { MdOutlineCheckBox, MdOutlineCheckBoxOutlineBlank, MdOutlineFilterList } from "react-icons/md";
-import PeriodSelector from "../PeriodSelector";
 import useOutsideAlerter from "../../hooks/useOutsideAlerter";
 
-function RankingFilters({ toggleFilter }: { toggleFilter: (filter: keyof typeof FilterKeys) => void} ) {
+function RankingFilters({ toggleFilter, filters }: { filters: filters, toggleFilter: (filter: keyof typeof FilterKeys) => void} ) {
     return (
         <div className="ranking-filters">
-            <div className="ranking-filters__heading">Filters:</div>
-            <PeriodSelector />
-            <Filter toggleFilter={toggleFilter} />
+            <Filter filters={filters} toggleFilter={toggleFilter} />
         </div>
     );
 }
 
 export default RankingFilters;
 
-function Filter({ toggleFilter }: { toggleFilter: (filter: keyof typeof FilterKeys) => void}) {
+function Filter({ toggleFilter, filters }: { filters: filters, toggleFilter: (filter: keyof typeof FilterKeys) => void}) {
     const [dropdownVisible, setDropdownVisible] = useState(false);
     const wrapperRef = useRef(null);
     useOutsideAlerter(wrapperRef, () => setDropdownVisible(false));
@@ -32,8 +29,18 @@ function Filter({ toggleFilter }: { toggleFilter: (filter: keyof typeof FilterKe
             </div>
             {dropdownVisible &&
             <div className="filter__dropdown">
-                <Checkbox text="Hide Out of Region Players" filterKey="region" toggleFilter={toggleFilter} />
-                <Checkbox text="Hide Unranked Players" filterKey="ranked" toggleFilter={toggleFilter} />
+                <Checkbox 
+                    text="Hide Out of Region Players" 
+                    filterKey="region" 
+                    checked={filters.region}
+                    toggleFilter={toggleFilter} 
+                />
+                <Checkbox 
+                    text="Hide Unranked Players" 
+                    filterKey="ranked" 
+                    checked={filters.ranked}
+                    toggleFilter={toggleFilter} 
+                />
             </div>
             }
         </div>
@@ -42,11 +49,8 @@ function Filter({ toggleFilter }: { toggleFilter: (filter: keyof typeof FilterKe
 
 
 
-function Checkbox({ text, filterKey, toggleFilter }: { text: string, filterKey: keyof typeof FilterKeys, toggleFilter: (filter: keyof typeof FilterKeys) => void }) {
-    const [checked, setChecked] = useState(false);
-
+function Checkbox({ text, filterKey, toggleFilter, checked }: { text: string, filterKey: keyof typeof FilterKeys, checked: boolean, toggleFilter: (filter: keyof typeof FilterKeys) => void }) {
     function handleClick() {
-        setChecked(!checked);
         toggleFilter(filterKey);
     }
 

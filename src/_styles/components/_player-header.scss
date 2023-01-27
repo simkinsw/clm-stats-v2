@@ -5,6 +5,7 @@
     overflow: hidden;
     min-height: 21rem;
     border-bottom: 1px solid $color-text-gray;
+    display: flex;
 
     &__info {
         display: flex;
@@ -49,7 +50,7 @@
         }
 
         &--pronouns {
-            margin-left: 3rem;
+            margin-left: 1rem;
         }
 
         &--twitch, &--twitter {
@@ -72,3 +73,16 @@
     text-decoration:none;
 }
 
+.player-header__not-found {
+    align-self: center;
+    text-align: center;
+    flex: 1;
+}
+
+.player-header__home-link {
+    color: blue;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}

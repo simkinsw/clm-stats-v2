@@ -38,7 +38,7 @@ function TournamentBar({ tourneys }: { tourneys: [Tournament, Tournament] }) {
 
     const p1Better = p1Placement < p2Placement ? "true" : p1Placement > p2Placement ? "false" : "equal";
 
-    let tournamentName = tourneys[0].event.tournamentName;
+    let tournamentName = tourneys[0].event.tournamentName.split(":")[0];
     if(tournamentName.includes("Midlane Melee")) {
         const number = tourneys[0].event.slug.split("/")[1].split("-")[2];
         if(parseInt(number) < 62) tournamentName += " " + number;
